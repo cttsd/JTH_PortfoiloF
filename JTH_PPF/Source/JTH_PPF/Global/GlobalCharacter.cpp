@@ -3,10 +3,11 @@
 
 #include "Global/GlobalCharacter.h"
 
+
 // Sets default values
 AGlobalCharacter::AGlobalCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
@@ -15,7 +16,11 @@ AGlobalCharacter::AGlobalCharacter()
 void AGlobalCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	GlobalAnimInstance = Cast<UGlobalAnimInstance>(GetMesh()->GetAnimInstance());
+
+	GlobalAnimInstance->AllAnimations = AllAnimations;
+
 }
 
 // Called every frame
