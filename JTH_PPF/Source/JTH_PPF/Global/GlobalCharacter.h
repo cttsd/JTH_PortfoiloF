@@ -16,6 +16,20 @@ public:
 	// Sets default values for this character's properties
 	AGlobalCharacter();
 
+	void SetHP(int _HP)
+	{
+		HP -= _HP;
+	}
+
+	void AddHP(int _HP)
+	{
+		HP += _HP;
+	}
+
+	int GetHP()
+	{
+		return HP;
+	}
 
 	int GetAniState()
 	{
@@ -69,6 +83,11 @@ public:
 		}
 	}
 
+	UFUNCTION()
+		void PushComponent(UActorComponent* _Component)
+	{
+		MgrComponent.Add(_Component);
+	}
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pawn", meta = (AllowPrivateAccess = "true"))
@@ -100,20 +119,33 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 
+	UFUNCTION()
+		void OverLap(class UPrimitiveComponent* OverlappedComponent,
+			class AActor* OtherActor,
+			class UPrimitiveComponent* OtherComp,
+			int32 OtherBodyIndex,
+			bool bFromSweep, const FHitResult& SweepResult);
+
+
+	virtual void Damage(AActor* _Actor) {}
+
+	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		TArray<UActorComponent*> MgrComponent;
 
 
 private:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-
-	UPROPERTY(Category = "GameModeValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		int AniState = 0;
 
-	UPROPERTY(Category = "AnimationValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TMap<int, class UAnimMontage*> AllAnimations;
 
-
 	class UGlobalAnimInstance* GlobalAnimInstance = nullptr;
+
+	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+		int HP = 1;
 
 };

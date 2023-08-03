@@ -3,15 +3,21 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AI/BTTask_AIBase.h"
+#include "BTTask_AIBase.h"
+#include "BehaviorTree/Tasks/BTTask_BlackboardBase.h"
 #include "BTTask_MOVE.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class JTH_PPF_API UBTTask_MOVE : public UBTTask_AIBase
 {
 	GENERATED_BODY()
-	
+
+		UBTTask_MOVE();
+
+protected:
+	EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory);
+	void TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DelataSeconds);
 };

@@ -7,11 +7,14 @@
 #include "PatrolPositions.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class JTH_PPF_API UPatrolPositions : public UObject
 {
 	GENERATED_BODY()
-	
+
+public:
+	int CurrentIndex = 0;
+	TArray<FVector> Positions;
 };

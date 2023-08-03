@@ -3,15 +3,20 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AI/BTTask_AIBase.h"
+#include "BTTask_AIBase.h"
+#include "BehaviorTree/Tasks/BTTask_BlackboardBase.h"
 #include "BTTask_IDLE.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class JTH_PPF_API UBTTask_IDLE : public UBTTask_AIBase
 {
 	GENERATED_BODY()
-	
+
+protected:
+	EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory);
+
+	void TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DelataSeconds);
 };
