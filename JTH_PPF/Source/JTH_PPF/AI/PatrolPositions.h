@@ -18,3 +18,4 @@ public:
 	int CurrentIndex = 0;
 	TArray<FVector> Positions;
 };
+

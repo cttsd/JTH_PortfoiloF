@@ -40,14 +40,14 @@ UGlobalGameInstance::UGlobalGameInstance()
 
 	{
 
-		FString DataPath = TEXT("/Script/Engine.DataTable'/Game/BluePrint/AI/DT_MonsterData.DT_MonsterData'");
+		FString DataPath = TEXT("/Script/Engine.DataTable'/Game/BluePrint/GamePlayeBluePrint/Monster/DT_MonsterData.DT_MonsterData'");
 		ConstructorHelpers::FObjectFinder<UDataTable> DataTable(*DataPath);
 
 		if (DataTable.Succeeded())
 		{
 			MonsterDatas = DataTable.Object;
 		}
-
+		
 	}
 
 	UARGlobal::MainRandom.GenerateNewSeed();
