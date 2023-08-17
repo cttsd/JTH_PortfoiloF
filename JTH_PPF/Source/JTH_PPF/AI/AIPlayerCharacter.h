@@ -48,8 +48,8 @@ private:
 	UFUNCTION()
 		void MontageEnd(UAnimMontage* Anim, bool _Inter);
 
-	//UFUNCTION()
-		//void AnimNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
+	UFUNCTION()
+		void AnimNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
 
 
 };

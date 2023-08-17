@@ -5,7 +5,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include <Global/GlobalGameInstance.h>
 #include "Camera/CameraComponent.h"
-
+#include "Global/ProjectTile.h"
 #include "AIEnum.h"
 
 AAIPlayerCharacter::AAIPlayerCharacter()
@@ -197,7 +197,7 @@ void AAIPlayerCharacter::MontageEnd(UAnimMontage* Anim, bool _Inter)
 	}
 }
 
-/*void AAIPlayerCharacter::AnimNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload)
+void AAIPlayerCharacter::AnimNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload)
 {
 	UGlobalGameInstance* Inst = GetWorld()->GetGameInstance<UGlobalGameInstance>();
 
@@ -243,4 +243,4 @@ void AAIPlayerCharacter::MontageEnd(UAnimMontage* Anim, bool _Inter)
 			ProjectTile->GetSphereComponent()->SetCollisionProfileName(TEXT("PlayerAttack"), true);
 		}
 	}
-}*/
+}

@@ -21,15 +21,15 @@ public:
 	UGlobalGameInstance();
 	~UGlobalGameInstance();
 
-	//TSubclassOf<UObject> GetSubClass(FName _Name);
+	TSubclassOf<UObject> GetSubClass(FName _Name);
 
 	//UStaticMesh* GetMesh(FName _Name);
 
 	struct FMonsterData* GetMonsterData(FName _Name);
 
 private:
-	//UPROPERTY()
-		//UDataTable* SubClassData;
+	UPROPERTY()
+		UDataTable* SubClassData;
 
 	//UPROPERTY()
 		//UDataTable* MeshDatas;
