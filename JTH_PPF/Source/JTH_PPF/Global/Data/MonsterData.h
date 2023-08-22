@@ -28,5 +28,10 @@ struct JTH_PPF_API FMonsterData : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
 		TMap<AIState, class UAnimMontage*> MapAnimation;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
+		float SearchRange = 800.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
+		float AttackRange = 200.0f;
 };
 
