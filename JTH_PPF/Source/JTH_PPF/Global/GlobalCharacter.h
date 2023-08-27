@@ -12,6 +12,15 @@ class JTH_PPF_API AGlobalCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+    /*
+	struct FPlayerCharacterData* CurPlayerCharacterData;
+
+	UPROPERTY(Category = "ATT", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	FName AttDataName = "NONE";
+
+	int PlayerAtt = 0;
+	*/
+
 public:
 	// Sets default values for this character's properties
 	AGlobalCharacter();
@@ -146,6 +155,6 @@ private:
 	class UGlobalAnimInstance* GlobalAnimInstance = nullptr;
 
 	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		int HP = 1;
+		int HP = 100;
 
 };

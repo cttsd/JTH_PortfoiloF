@@ -79,6 +79,7 @@ void AAIPlayerCharacter::BeginPlay()
 {
 	SetAllAnimation(MapAnimation);
 
+
 	Super::BeginPlay();
 
 	GetGlobalAnimInstance()->OnMontageBlendingOut.AddDynamic(this, &AAIPlayerCharacter::MontageEnd);
@@ -148,11 +149,19 @@ void AAIPlayerCharacter::MoveForward(float Val)
 		{
 			// 컨트롤러는 기본적으로
 			// charcter 하나씩 붙어 있습니다.
-			FRotator const ControlSpaceRot = Controller->GetControlRotation();
+
+			FRotator Rotation = Controller->GetControlRotation();
+			const FRotator YawRotation(0, Rotation.Yaw, 0);
+			const FVector Direction = FRotationMatrix(YawRotation).GetScaledAxis(EAxis::X);
+			AddMovementInput(Direction, Val);
+
+			//FRotator const ControlSpaceRot = Controller->GetControlRotation();
 
 			// 이건 방향일 뿐입니다.
 			// transform to world space and add it
-			AddMovementInput(FRotationMatrix(ControlSpaceRot).GetScaledAxis(EAxis::X), Val);
+			
+			//AddMovementInput(FRotationMatrix(ControlSpaceRot).GetScaledAxis(EAxis::X), Val);
+			
 			// 탑뷰게임이면 다르게 나오게 되는데.
 			// 지금은 TPS를 하고 있기 때문에 컨트롤러의 회전이나 액터의 회전이나 같아요.
 			// AddMovementInput(GetActorForwardVector(), Val);

@@ -27,6 +27,13 @@ public:
 
 	struct FMonsterData* GetMonsterData(FName _Name);
 
+	struct FPlayerCharacterData* GetPlayerCharacterData(FName _Name);
+
+	void GetGameData(int _Data, AActor* Owner);
+	int SetGameData();
+	int GameAtt = 0;
+	AActor* _Owner = nullptr;
+
 private:
 	UPROPERTY()
 		UDataTable* SubClassData;
@@ -36,6 +43,9 @@ private:
 
 	UPROPERTY()
 		UDataTable* MonsterDatas;
+
+	UPROPERTY()
+		UDataTable* PlayerCharacterDatas;
 
 	TArray<UStaticMesh*> Arrmesh;
 };

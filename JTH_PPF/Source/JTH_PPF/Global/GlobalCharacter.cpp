@@ -3,6 +3,8 @@
 
 #include "Global/GlobalCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "Global/GlobalGameInstance.h"
+#include <Global/Data/PlayerCharacterData.h>
 
 // Sets default values
 AGlobalCharacter::AGlobalCharacter()
@@ -15,6 +17,15 @@ AGlobalCharacter::AGlobalCharacter()
 // Called when the game starts or when spawned
 void AGlobalCharacter::BeginPlay()
 {
+	/*
+	UGlobalGameInstance* Inst = GetWorld()->GetGameInstance<UGlobalGameInstance>();
+	if (nullptr != Inst)
+	{
+		CurPlayerCharacterData = Inst->GetPlayerCharacterData(AttDataName);
+	}
+	PlayerAtt = CurPlayerCharacterData->ATT;
+	*/
+	
 	Super::BeginPlay();
 
 	GlobalAnimInstance = Cast<UGlobalAnimInstance>(GetMesh()->GetAnimInstance());
@@ -55,9 +66,16 @@ void AGlobalCharacter::OverLap(UPrimitiveComponent* OverlappedComponent,
 
 	if (true == OtherComp->ComponentHasTag(TEXT("Damage")))
 	{
+		
+		int ATT = 0;
+		UGlobalGameInstance* Inst = GetWorld()->GetGameInstance<UGlobalGameInstance>();
+		//APortfolio_Tile* Tile = NewObject<APortfolio_Tile>();
+
+		ATT = Inst->SetGameData();
+		
 		// 상대가 대미지를 가졌다면 어떻게 알아올것이냐?
 
-		HP -= 1;
-		// Damage(OtherActor);
+		HP -= ATT;
+		//Damage(OtherActor);
 	}
 }

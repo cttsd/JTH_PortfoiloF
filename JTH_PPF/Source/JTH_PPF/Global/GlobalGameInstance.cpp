@@ -5,6 +5,7 @@
 #include <Global/Data/GameMeshData.h>
 #include <Global/Data/SubClassData.h>
 #include <Global/Data/MonsterData.h>
+#include <Global/Data/PlayerCharacterData.h>
 #include "ARGlobal.h"
 
 UGlobalGameInstance::UGlobalGameInstance()
@@ -48,6 +49,18 @@ UGlobalGameInstance::UGlobalGameInstance()
 			MonsterDatas = DataTable.Object;
 		}
 		
+	}
+
+	{
+
+		FString DataPath = TEXT("/Script/Engine.DataTable'/Game/BluePrint/GamePlayeBluePrint/PlayerCharacter/DT_PlayerCharacterData.DT_PlayerCharacterData'");
+		ConstructorHelpers::FObjectFinder<UDataTable> DataTable(*DataPath);
+
+		if (DataTable.Succeeded())
+		{
+			PlayerCharacterDatas = DataTable.Object;
+		}
+
 	}
 
 	UARGlobal::MainRandom.GenerateNewSeed();
@@ -108,4 +121,32 @@ FMonsterData* UGlobalGameInstance::GetMonsterData(FName _Name)
 	}
 
 	return FindTable;
+}
+
+FPlayerCharacterData* UGlobalGameInstance::GetPlayerCharacterData(FName _Name)
+{
+	if (nullptr == PlayerCharacterDatas)
+	{
+		return nullptr;
+	}
+
+	FPlayerCharacterData* FindTable = PlayerCharacterDatas->FindRow<FPlayerCharacterData>(_Name, _Name.ToString());
+
+	if (nullptr == FindTable)
+	{
+		return nullptr;
+	}
+
+	return FindTable;
+}
+
+void UGlobalGameInstance::GetGameData(int _Data, AActor* Owner)
+{
+	GameAtt = _Data;
+}
+
+int UGlobalGameInstance::SetGameData()
+{
+	GameAtt = 20;
+	return GameAtt;
 }
