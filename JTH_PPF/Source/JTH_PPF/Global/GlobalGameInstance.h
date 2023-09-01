@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
 #include "Engine/DataTable.h"
-
+#include "ARGlobal.h"
 #include "GlobalGameInstance.generated.h"
 
 /**
@@ -34,6 +34,8 @@ public:
 	int GameAtt = 0;
 	AActor* _Owner = nullptr;
 
+	const struct FItemData* GetRandomItemData();
+
 private:
 	UPROPERTY()
 		UDataTable* SubClassData;
@@ -46,6 +48,11 @@ private:
 
 	UPROPERTY()
 		UDataTable* PlayerCharacterDatas;
+
+		UPROPERTY()
+		UDataTable* ItemDatas;
+
+		TArray<const struct FItemData*> ItemDataRandoms;
 
 	TArray<UStaticMesh*> Arrmesh;
 };

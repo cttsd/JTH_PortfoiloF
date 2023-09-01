@@ -4,6 +4,7 @@
 #include "GlobalGameInstance.h"
 #include <Global/Data/GameMeshData.h>
 #include <Global/Data/SubClassData.h>
+#include <Global/Data/ItemData.h>
 #include <Global/Data/MonsterData.h>
 #include <Global/Data/PlayerCharacterData.h>
 #include "ARGlobal.h"
@@ -28,6 +29,26 @@ UGlobalGameInstance::UGlobalGameInstance()
 			}
 		}
 	}*/
+
+	{
+		FString DataPath = TEXT("/Script/Engine.DataTable'/Game/BluePrint/GamePlayeBluePrint/GlobalDataTable/DT_ItemData.DT_ItemData'");
+		ConstructorHelpers::FObjectFinder<UDataTable> DataTable(*DataPath);
+
+		if (DataTable.Succeeded())
+		{
+			ItemDatas = DataTable.Object;
+
+			TArray<FName> ArrayName = ItemDatas->GetRowNames();
+
+			for (size_t i = 0; i < ArrayName.Num(); i++)
+			{
+				FItemData* ItemData = ItemDatas->FindRow<FItemData>(ArrayName[i], ArrayName[i].ToString());
+				ItemDataRandoms.Add(ItemData);
+			}
+		}
+	}
+
+
 
 	{
 		FString DataPath = TEXT("/Script/Engine.DataTable'/Game/BluePrint/GamePlayeBluePrint/PlayerCharacter/DT_SubClassData.DT_SubClassData'");
@@ -69,6 +90,18 @@ UGlobalGameInstance::~UGlobalGameInstance()
 {
 
 }
+
+const struct FItemData* UGlobalGameInstance::GetRandomItemData()
+{
+	if (true == ItemDataRandoms.IsEmpty())
+	{
+		return nullptr;
+	}
+
+	return ItemDataRandoms[UARGlobal::MainRandom.RandRange(0, ItemDataRandoms.Num() - 1)];
+}
+
+
 
 TSubclassOf<UObject> UGlobalGameInstance::GetSubClass(FName _Name)
 {
@@ -148,5 +181,6 @@ void UGlobalGameInstance::GetGameData(int _Data, AActor* Owner)
 int UGlobalGameInstance::SetGameData()
 {
 	GameAtt = 20;
+	
 	return GameAtt;
 }

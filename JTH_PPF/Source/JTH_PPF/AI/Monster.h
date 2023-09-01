@@ -23,6 +23,8 @@ public:
 
 	void BeginPlay() override;
 
+	void Destroyed() override;
+
 private:
 	UPROPERTY(Category = "Monster", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		FName DataName = "NONE";

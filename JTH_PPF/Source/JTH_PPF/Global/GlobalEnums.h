@@ -20,3 +20,13 @@ enum class AIState : uint8
 	ATTACK UMETA(DisplayName = "GBATTACK"),
 	DEATH UMETA(DisplayName = "GBDEATH"),
 };
+
+UENUM(BlueprintType)
+enum class ItemType : uint8
+{
+	NONE UMETA(DisplayName = "NONEITEM"),
+	ARMOR UMETA(DisplayName = "AROMR"),
+	WEAPON UMETA(DisplayName = "WEAPON"),
+	POSTION UMETA(DisplayName = "POTION"),
+	
+};
