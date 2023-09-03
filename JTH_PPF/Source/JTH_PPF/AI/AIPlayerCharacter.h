@@ -7,6 +7,7 @@
 #include "AIEnum.h"
 #include "AIPlayerCharacter.generated.h"
 
+
 /**
  *
  */
@@ -26,12 +27,14 @@ public:
 	void MoveForward(float Val);
 	void TurnAtRate(float Rate);
 	void LookUpAtRate(float Rate);
-
+	
 
 protected:
 	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	void BeginPlay() override;
+
+
 
 private:
 	UPROPERTY(Category = "Components", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
@@ -51,5 +54,5 @@ private:
 	UFUNCTION()
 		void AnimNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
 
-
+		
 };

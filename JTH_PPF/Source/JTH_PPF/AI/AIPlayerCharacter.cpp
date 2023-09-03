@@ -8,6 +8,7 @@
 #include "Global/ProjectTile.h"
 #include "AIEnum.h"
 
+
 AAIPlayerCharacter::AAIPlayerCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -253,3 +254,4 @@ void AAIPlayerCharacter::AnimNotifyBegin(FName NotifyName, const FBranchingPoint
 		}
 	}
 }
+
