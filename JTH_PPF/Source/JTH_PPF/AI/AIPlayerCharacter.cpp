@@ -25,11 +25,14 @@ AAIPlayerCharacter::AAIPlayerCharacter()
 	// SpringArmComponent
 }
 
-void AAIPlayerCharacter::Tick(float _Delta)
+/*
+void AAIPlayerCharacter::Tick(float Delta)
 {
+	//Super::Tick(Delta);
 	// SpringArmComponent->AddLocalRotation();
 	// AddControllerYawInput(100);
 }
+*/
 
 void AAIPlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {

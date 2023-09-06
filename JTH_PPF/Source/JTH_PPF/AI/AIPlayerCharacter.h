@@ -37,13 +37,16 @@ protected:
 
 
 private:
+	//virtual void Tick(float Delta) override;
+	//virtual void Tick(float _Delta) override;
+
 	UPROPERTY(Category = "Components", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class USpringArmComponent* SpringArmComponent;
 
 	UPROPERTY(Category = "Components", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		class UCameraComponent* CameraComponent;
 
-	void Tick(float _Delta) override;
+	//void Tick(float _Delta) override;
 
 	UPROPERTY(Category = "Components", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TMap<AIAniState, class UAnimMontage*> MapAnimation;
