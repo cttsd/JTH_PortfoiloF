@@ -28,6 +28,14 @@ public:
 	void TurnAtRate(float Rate);
 	void LookUpAtRate(float Rate);
 	
+	/*class AGlobalCharacter* GetGlobalCharacter()
+	{
+		return GlobalCharacter;
+	}
+
+	void PlayerHPCheck();
+	
+	int PlayerHP = 0;*/
 
 protected:
 	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -57,5 +65,5 @@ private:
 	UFUNCTION()
 		void AnimNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
 
-		
+		//class AGlobalCharacter* GlobalCharacter = nullptr;
 };

@@ -258,3 +258,10 @@ void AAIPlayerCharacter::AnimNotifyBegin(FName NotifyName, const FBranchingPoint
 	}
 }
 
+/*void AAIPlayerCharacter::PlayerHPCheck()
+{
+	GetGlobalCharacter()->GetHP();
+	PlayerHP = GetHP();
+	
+}*/
+

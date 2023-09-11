@@ -79,7 +79,7 @@ void AGlobalCharacter::OverLap(UPrimitiveComponent* OverlappedComponent,
 		if (0 >= HP)
 		{
 			HP = 0;
-			// 헤더 파일에서 체력을 100으로 했기 때문에 그 이상으로 체력이 올라갔을 때는 100으로 고정
+			// 0 밑으로 떨어지지 않게 고정
 		}
 		//Damage(OtherActor);
 	}
