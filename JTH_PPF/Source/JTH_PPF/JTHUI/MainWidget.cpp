@@ -3,7 +3,7 @@
 
 #include "JTHUI/MainWidget.h"
 #include "AI/AIPlayerCharacter.h"
-//#include "InventoryUserWidget.h"
+#include "InventoryUserWidget.h"
 
 void UMainWidget::NativeConstruct()
 {
@@ -13,7 +13,7 @@ void UMainWidget::NativeConstruct()
 	// Inven = Cast<UInventoryUserWidget>(GetWidgetFromName(TEXT("WBP_Status")));
 
 	AllWidGet.Add(Cast<UUserWidget>(GetWidgetFromName(TEXT("WBP_Inventory"))));
-	AllWidGet.Add(Cast<UUserWidget>(GetWidgetFromName(TEXT("WBP_Status"))));
+	//AllWidGet.Add(Cast<UUserWidget>(GetWidgetFromName(TEXT("WBP_Status"))));
 }
 
 /*AAIPlayerCharacter* UMainWidget::GetAIPlayerCharacter()

@@ -26,11 +26,11 @@ public:
 	{
 		OptionOnOff = OptionOnOff == ESlateVisibility::Hidden ? ESlateVisibility::Visible : ESlateVisibility::Hidden;
 	}
-
+	/*
 	void SetStatusWindowOnOffSwitch()
 	{
 		StatusWindowOnOff = StatusWindowOnOff == ESlateVisibility::Hidden ? ESlateVisibility::Visible : ESlateVisibility::Hidden;
-	}
+	}*/
 
 	void SetInventoryOnOffSwitch()
 	{
@@ -54,8 +54,8 @@ private:
 	UPROPERTY(Category = "UIOnOff", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	ESlateVisibility InventoryOnOff = ESlateVisibility::Hidden;
 
-	UPROPERTY(Category = "UIOnOff", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	ESlateVisibility StatusWindowOnOff = ESlateVisibility::Hidden;
+	/*UPROPERTY(Category = "UIOnOff", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	ESlateVisibility StatusWindowOnOff = ESlateVisibility::Hidden;*/
 
 	UPROPERTY(Category = "UIOnOff", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	ESlateVisibility OptionOnOff = ESlateVisibility::Hidden;

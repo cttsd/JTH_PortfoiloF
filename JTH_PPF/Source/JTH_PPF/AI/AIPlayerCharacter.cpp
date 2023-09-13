@@ -4,6 +4,8 @@
 #include "AI/AIPlayerCharacter.h"
 #include "GameFramework/SpringArmComponent.h"
 #include <Global/GlobalGameInstance.h>
+#include "JTHUI/GameHUD.h"
+#include "JTHUI/MainWidget.h"
 #include "Camera/CameraComponent.h"
 #include "Global/ProjectTile.h"
 #include "AIEnum.h"
@@ -63,6 +65,7 @@ void AAIPlayerCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 
 		UPlayerInput::AddEngineDefinedActionMapping(FInputActionKeyMapping(TEXT("PlayerAttack"), EKeys::LeftMouseButton));
 		UPlayerInput::AddEngineDefinedActionMapping(FInputActionKeyMapping(TEXT("PlayerJumpAction"), EKeys::SpaceBar));
+		UPlayerInput::AddEngineDefinedActionMapping(FInputActionKeyMapping(TEXT("InventoryWindow"), EKeys::Nine));
 	}
 
 	// 키와 함수를 연결합니다.

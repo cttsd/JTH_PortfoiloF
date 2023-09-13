@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/HUD.h"
+#include "JTHUI/MainWidget.h"
 #include "GameHUD.generated.h"
-//#include <JTHUI/MainWidget.h>
+
+
 /**
  * 
  */
@@ -16,10 +18,12 @@ class JTH_PPF_API AGameHUD : public AHUD
 	AGameHUD();
 	~AGameHUD();
 
-	/*UMainWidget* GetMainWidget()
+
+	UFUNCTION(BlueprintCallable)
+	UMainWidget* GetMainWidget()
 	{
 		return MainWidget;
-	}*/
+	}
 
 protected:
 	void BeginPlay() override;
@@ -28,5 +32,5 @@ protected:
 private:
 	
 
-	//UMainWidget* MainWidget = nullptr; 
+	UMainWidget* MainWidget = nullptr; 
 };
