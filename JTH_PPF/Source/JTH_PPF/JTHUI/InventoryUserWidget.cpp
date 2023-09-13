@@ -24,7 +24,7 @@ void UInventoryUserWidget::NativeConstruct()
 
 	// 여기에다가 뭘 넣어줘야 하는지가 내일 배워야할 내용.
 
-	for (size_t i = 0; i < 20; i++)
+	for (size_t i = 0; i < 49; i++)
 	{
 		UInvenItemData* ItemObject = NewObject<UInvenItemData>();
 		ItemObject->Data = nullptr;
