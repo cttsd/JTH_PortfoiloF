@@ -4,12 +4,11 @@
 #include "AI/AIPlayerCharacter.h"
 #include "GameFramework/SpringArmComponent.h"
 #include <Global/GlobalGameInstance.h>
-#include "JTHUI/GameHUD.h"
-#include "JTHUI/MainWidget.h"
 #include "Camera/CameraComponent.h"
 #include "Global/ProjectTile.h"
 #include "AIEnum.h"
-
+/*#include "JTHUI/GameHUD.h"
+#include "JTHUI/MainWidget.h"*/
 
 AAIPlayerCharacter::AAIPlayerCharacter()
 {

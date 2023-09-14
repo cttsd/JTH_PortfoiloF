@@ -4,6 +4,7 @@
 #include "JTHUI/MainWidget.h"
 #include "AI/AIPlayerCharacter.h"
 #include "InventoryUserWidget.h"
+#include "AI/AIPlayerCharacter.h"
 
 void UMainWidget::NativeConstruct()
 {
