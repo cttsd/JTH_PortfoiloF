@@ -74,7 +74,7 @@ UGlobalGameInstance::UGlobalGameInstance()
 
 	{
 
-		FString DataPath = TEXT("/Script/Engine.DataTable'/Game/BluePrint/GamePlayeBluePrint/PlayerCharacter/DT_PlayerCharacterData.DT_PlayerCharacterData'");
+		FString DataPath = TEXT("/Script/Engine.DataTable'/Game/BluePrint/GamePlayeBluePrint/PlayerCharacter/CharacterData.CharacterData'");
 		ConstructorHelpers::FObjectFinder<UDataTable> DataTable(*DataPath);
 
 		if (DataTable.Succeeded())

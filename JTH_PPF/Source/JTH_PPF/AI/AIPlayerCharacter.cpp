@@ -85,8 +85,19 @@ void AAIPlayerCharacter::BeginPlay()
 {
 	SetAllAnimation(MapAnimation);
 
-
 	Super::BeginPlay();
+
+	UGlobalGameInstance* Inst = GetWorld()->GetGameInstance<UGlobalGameInstance>();
+	if (nullptr != Inst)
+	{
+		CurPlayerCharacterData = Inst->GetPlayerCharacterData(AttDataName);
+	}
+	CharacterATT = CurPlayerCharacterData->ATT;
+	CharacterHP = CurPlayerCharacterData->HP;
+	CharacterMAXHP = CurPlayerCharacterData->MAXHP;
+	Damage(CharacterATT);
+	MainHP(CharacterHP);
+	MainMAXHP(CharacterMAXHP);
 
 	GetGlobalAnimInstance()->OnMontageBlendingOut.AddDynamic(this, &AAIPlayerCharacter::MontageEnd);
 

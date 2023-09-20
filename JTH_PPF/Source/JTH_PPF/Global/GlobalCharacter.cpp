@@ -4,7 +4,7 @@
 #include "Global/GlobalCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "Global/GlobalGameInstance.h"
-#include <Global/Data/PlayerCharacterData.h>
+
 
 // Sets default values
 AGlobalCharacter::AGlobalCharacter()
@@ -17,17 +17,16 @@ AGlobalCharacter::AGlobalCharacter()
 // Called when the game starts or when spawned
 void AGlobalCharacter::BeginPlay()
 {
+	
+	Super::BeginPlay();
 	/*
 	UGlobalGameInstance* Inst = GetWorld()->GetGameInstance<UGlobalGameInstance>();
 	if (nullptr != Inst)
 	{
 		CurPlayerCharacterData = Inst->GetPlayerCharacterData(AttDataName);
 	}
-	PlayerAtt = CurPlayerCharacterData->ATT;
+	characterATT = CurPlayerCharacterData->ATT;
 	*/
-	
-	Super::BeginPlay();
-
 	GlobalAnimInstance = Cast<UGlobalAnimInstance>(GetMesh()->GetAnimInstance());
 
 	GlobalAnimInstance->AllAnimations = AllAnimations;
@@ -67,6 +66,18 @@ void AGlobalCharacter::OverLap(UPrimitiveComponent* OverlappedComponent,
 	if (true == OtherComp->ComponentHasTag(TEXT("Damage")))
 	{
 		
+		
+		//여기 있는 Att은 나의 공격력이 아닌 내가 받는 데미지를 말하는 거임
+		HP -= Att;
+		if (0 >= HP)
+		{
+			HP = 0;
+			// 0 밑으로 떨어지지 않게 고정
+		}
+		
+		
+		
+		/*
 		int ATT = 0;
 		UGlobalGameInstance* Inst = GetWorld()->GetGameInstance<UGlobalGameInstance>();
 		//APortfolio_Tile* Tile = NewObject<APortfolio_Tile>();
@@ -82,8 +93,9 @@ void AGlobalCharacter::OverLap(UPrimitiveComponent* OverlappedComponent,
 			// 0 밑으로 떨어지지 않게 고정
 		}
 		//Damage(OtherActor);
+		*/
 	}
-
+	
 	if (true == OtherComp->ComponentHasTag(TEXT("HeartPostion")))
 	{
 		HP += 20;

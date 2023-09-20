@@ -4,7 +4,7 @@
 #include "JTHUI/MainWidget.h"
 #include "AI/AIPlayerCharacter.h"
 #include "InventoryUserWidget.h"
-#include "AI/AIPlayerCharacter.h"
+
 
 void UMainWidget::NativeConstruct()
 {
@@ -17,19 +17,12 @@ void UMainWidget::NativeConstruct()
 	//AllWidGet.Add(Cast<UUserWidget>(GetWidgetFromName(TEXT("WBP_Status"))));
 }
 
-/*AAIPlayerCharacter* UMainWidget::GetAIPlayerCharacter()
-{
-	GetAIPlayerCharacter()->PlayerHPCheck();
-}*/
-
-
-
 
 void UMainWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 {
 	Super::NativeTick(MyGeometry, InDeltaTime);
 	
-	// //GetAIPlayerCharacter()->PlayerHPCheck();
+	// //PlayerHPe();
 	// 기본적인 이동이나 이런 시스템자체가 다르다는것을 기억해야 한다.
 	// Inven->SetPositionInViewport({100, 100});
 	// Inven->SetAnchorsInViewport();
@@ -58,3 +51,10 @@ bool UMainWidget::CheckAllWidGetHidden()
 
 	return false;
 }
+
+/*void UMainWidget::PlayerHPe()
+{
+	GetAIPlayerCharacter();
+	return;
+}*/
+

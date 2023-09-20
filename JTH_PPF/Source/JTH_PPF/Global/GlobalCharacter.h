@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include <Global/GlobalAnimInstance.h>
+#include <Global/Data/PlayerCharacterData.h>
 #include "GlobalCharacter.generated.h"
 
 UCLASS()
@@ -12,18 +13,17 @@ class JTH_PPF_API AGlobalCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-    /*
-	struct FPlayerCharacterData* CurPlayerCharacterData;
-
-	UPROPERTY(Category = "ATT", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	FName AttDataName = "NONE";
-
-	int PlayerAtt = 0;
-	*/
-
 public:
 	// Sets default values for this character's properties
 	AGlobalCharacter();
+	/*
+	UPROPERTY(Category = "ATT", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	FName AttDataName = "NONE";
+
+	struct FPlayerCharacterData* CurPlayerCharacterData;
+
+	int characterATT = 0;
+	*/
 
 	void SetHP(int _HP)
 	{
@@ -38,6 +38,16 @@ public:
 	int GetHP()
 	{
 		return HP;
+	}
+
+	int GetATT()
+	{
+		return Att;
+	}
+
+	int GetMAXHP()
+	{
+		return MAXHP;
 	}
 
 	int GetAniState()
@@ -136,7 +146,22 @@ protected:
 			bool bFromSweep, const FHitResult& SweepResult);
 
 
-	virtual void Damage(AActor* _Actor) {}
+	//virtual void Damage(AActor* _Actor) {}
+
+		virtual void Damage(int _Att)
+		{
+			Att = _Att;
+		}
+
+		virtual void MainHP(int _HP)
+		{
+			HP = _HP;
+		}
+
+		virtual void MainMAXHP(int _MAXHP)
+		{
+			MAXHP = _MAXHP;
+		}
 
 	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 		TArray<UActorComponent*> MgrComponent;
@@ -155,7 +180,9 @@ private:
 	class UGlobalAnimInstance* GlobalAnimInstance = nullptr;
 
 	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	    float HP = 100;
+	    float HP = 0;
 	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-		float MAXHP = 100;
+		float MAXHP = 0;
+	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	    int Att = 0;
 };

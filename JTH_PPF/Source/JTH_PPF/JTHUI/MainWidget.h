@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "AI/AIPlayerCharacter.h"
+#include "Global/GlobalCharacter.h"
 #include "MainWidget.generated.h"
 
 /**
@@ -16,7 +18,7 @@ class JTH_PPF_API UMainWidget : public UUserWidget
 
 public:
 
-	//int HP = 0;
+	
 	
 	UFUNCTION(BlueprintCallable)
 	bool CheckAllWidGetHidden();
@@ -37,11 +39,13 @@ public:
 		InventoryOnOff = InventoryOnOff == ESlateVisibility::Hidden ? ESlateVisibility::Visible : ESlateVisibility::Hidden;
 	}
 	
-	/*class AAIPlayerCharacter* GetAIPlayerCharacter()
-	{
-		return AIPlayerCharacter;
-	}*/
+	/*UFUNCTION(BlueprintCallable)
+	void PlayerHPe();
 	
+	class AAIPlayerCharacter* GetAIPlayerCharacter()
+	{
+		AIPlayerCharacter;
+	}*/
 
 protected:
 	
@@ -63,11 +67,11 @@ private:
 	class UInventoryUserWidget* Inven;
 
 
-	//UPROPERTY(Category = "CharacterHPM", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	//float MAXHP = 100;
-
-
-	//class AAIPlayerCharacter* AIPlayerCharacter = nullptr;
+	UPROPERTY(Category = "CharacterHPM", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	float MAXHP = 100;
+	
+    /*
+	class AAIPlayerCharacter* AIPlayerCharacter = nullptr;*/
 	
 	UPROPERTY()
 	TArray<UUserWidget*> AllWidGet;

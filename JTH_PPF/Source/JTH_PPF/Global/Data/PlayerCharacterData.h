@@ -17,10 +17,13 @@ struct JTH_PPF_API FPlayerCharacterData : public FTableRowBase
 	~FPlayerCharacterData() {}
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
-	int HP;
+	float HP = 100;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
-	int ATT;
+	float MAXHP = 100;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
+	int ATT = 20;
 
 	
 };

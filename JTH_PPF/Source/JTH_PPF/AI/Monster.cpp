@@ -28,9 +28,22 @@ void AMonster::BeginPlay()
 		SetAllAnimation(CurMonsterData->MapAnimation);
 		SetAniState(AIState::DEATH);
 	}
+	MonsterATT = CurMonsterData->ATT;
+	MonsterHP = CurMonsterData->HP;
+	MonsterMAXHP = CurMonsterData->MAXHP;
+	Damage(MonsterATT);
+	MainHP(MonsterHP);
+	MainMAXHP(MonsterMAXHP);
 
 	Super::BeginPlay();
-
+	/*
+	if (nullptr != Inst)
+	{
+		CurPlayerCharacterData = Inst->GetPlayerCharacterData(AttDataName);
+	}
+	MonsterATT = CurPlayerCharacterData->ATT;
+	Damage(MonsterATT);
+	*/
 	GetGlobalAnimInstance()->OnPlayMontageNotifyBegin.AddDynamic(this, &AMonster::AnimNotifyBegin);
 
 	GetBlackboardComponent()->SetValueAsEnum(TEXT("AIState"), static_cast<uint8>(AIState::IDLE));

@@ -17,11 +17,14 @@ struct JTH_PPF_API FMonsterData : public FTableRowBase
 	~FMonsterData() {}
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
-		int HP;
+		float HP;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
+		float MAXHP;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
 		int ATT;
-
+		// 오버렙 됬을 때 내가 받는 데미지
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
 		class UBehaviorTree* AI;
 

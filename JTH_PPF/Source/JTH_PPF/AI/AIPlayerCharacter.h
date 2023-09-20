@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Global/GlobalCharacter.h"
 #include "AIEnum.h"
+#include <Global/Data/PlayerCharacterData.h>
 #include "AIPlayerCharacter.generated.h"
 
 
@@ -19,6 +20,16 @@ class JTH_PPF_API AAIPlayerCharacter : public AGlobalCharacter
 
 public:
 	AAIPlayerCharacter();
+
+	UPROPERTY(Category = "CharacterData", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	FName AttDataName = "NONE";
+
+	struct FPlayerCharacterData* CurPlayerCharacterData;
+
+	int CharacterATT = 0;
+
+	float CharacterHP = 0;
+	float CharacterMAXHP = 0;
 
 	void AttackAction();
 	void JumpAction();

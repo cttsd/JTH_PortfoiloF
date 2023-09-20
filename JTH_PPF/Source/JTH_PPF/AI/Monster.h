@@ -6,6 +6,7 @@
 #include "Global/AICharacter.h"
 #include <Global/GlobalEnums.h>
 #include <Global/Data/MonsterData.h>
+#include <Global/Data/PlayerCharacterData.h>
 #include "Monster.generated.h"
 
 /**
@@ -18,6 +19,15 @@ class JTH_PPF_API AMonster : public AAICharacter
 
 public:
 	AMonster();
+	/*
+	UPROPERTY(Category = "CharacterData", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	FName AttDataName = "NONE";
+
+	struct FPlayerCharacterData* CurPlayerCharacterData;
+	*/
+	int MonsterATT = 0;
+	float MonsterHP = 0;
+	float MonsterMAXHP = 0;
 
 	const struct FMonsterData* CurMonsterData;
 
