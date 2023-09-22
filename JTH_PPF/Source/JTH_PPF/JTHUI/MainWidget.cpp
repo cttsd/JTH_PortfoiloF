@@ -52,9 +52,10 @@ bool UMainWidget::CheckAllWidGetHidden()
 	return false;
 }
 
-/*void UMainWidget::PlayerHPe()
+void UMainWidget::PlayerHP()
 {
-	GetAIPlayerCharacter();
+	PlayHP = CurPlayerCharacter->CharacterHP;
+	PlayMAXHP = CurPlayerCharacter->CharacterMAXHP;
 	return;
-}*/
+}
 

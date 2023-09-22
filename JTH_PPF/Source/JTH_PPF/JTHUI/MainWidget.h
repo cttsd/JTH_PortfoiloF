@@ -17,7 +17,19 @@ class JTH_PPF_API UMainWidget : public UUserWidget
 	GENERATED_BODY()
 
 public:
+	void PlayerHP();
 
+	class AAIPlayerCharacter* CurPlayerCharacter;
+
+	int GetHP()
+	{
+		return PlayHP;
+	}
+
+	int GetMAXHP()
+	{
+		return PlayMAXHP;
+	}
 	
 	
 	UFUNCTION(BlueprintCallable)
@@ -68,8 +80,10 @@ private:
 
 
 	UPROPERTY(Category = "CharacterHPM", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	float MAXHP = 100;
+	float PlayHP = 0;
 	
+	UPROPERTY(Category = "CharacterHPM", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	float PlayMAXHP = 0;
     /*
 	class AAIPlayerCharacter* AIPlayerCharacter = nullptr;*/
 	
