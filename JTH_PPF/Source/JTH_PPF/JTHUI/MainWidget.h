@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "AI/AIPlayerCharacter.h"
-#include "Global/GlobalCharacter.h"
+//#include "AI/AIPlayerCharacter.h"
+//#include "Global/GlobalCharacter.h"
 #include "MainWidget.generated.h"
 
 /**
@@ -17,8 +17,8 @@ class JTH_PPF_API UMainWidget : public UUserWidget
 	GENERATED_BODY()
 
 public:
-	void PlayerHP();
-
+	
+	/*
 	class AAIPlayerCharacter* CurPlayerCharacter;
 
 	int GetHP()
@@ -30,7 +30,8 @@ public:
 	{
 		return PlayMAXHP;
 	}
-	
+	가져온 Hp를 여기서 저장
+	*/
 	
 	UFUNCTION(BlueprintCallable)
 	bool CheckAllWidGetHidden();
@@ -63,7 +64,21 @@ protected:
 	
 	void NativeConstruct() override;
 	void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
-	
+	/*
+	* 
+	*  playercharacter에서 hp 가져오는 식
+	void PlayerHP();
+
+	virtual void MainHP(int _PlayHP)
+	{
+		PlayHP = _PlayHP;
+	}
+
+	virtual void MainMAXHP(int _MAXHP)
+	{
+		PlayMAXHP = _MAXHP;
+	}
+	*/
 
 private:
 	

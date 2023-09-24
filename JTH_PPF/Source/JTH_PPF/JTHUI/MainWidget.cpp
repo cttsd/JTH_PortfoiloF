@@ -2,7 +2,7 @@
 
 
 #include "JTHUI/MainWidget.h"
-#include "AI/AIPlayerCharacter.h"
+//#include "AI/AIPlayerCharacter.h"
 #include "InventoryUserWidget.h"
 
 
@@ -22,6 +22,8 @@ void UMainWidget::NativeTick(const FGeometry& MyGeometry, float InDeltaTime)
 {
 	Super::NativeTick(MyGeometry, InDeltaTime);
 	
+
+
 	// //PlayerHPe();
 	// 기본적인 이동이나 이런 시스템자체가 다르다는것을 기억해야 한다.
 	// Inven->SetPositionInViewport({100, 100});
@@ -51,11 +53,16 @@ bool UMainWidget::CheckAllWidGetHidden()
 
 	return false;
 }
-
+/*
 void UMainWidget::PlayerHP()
 {
+
 	PlayHP = CurPlayerCharacter->CharacterHP;
 	PlayMAXHP = CurPlayerCharacter->CharacterMAXHP;
+	if (PlayHP)
+	{
+		
+	}
 	return;
 }
-
+*/

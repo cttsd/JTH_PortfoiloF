@@ -25,7 +25,7 @@ public:
 	FName AttDataName = "NONE";
 
 	struct FPlayerCharacterData* CurPlayerCharacterData;
-
+	
 	int CharacterATT = 0;
 
 	float CharacterHP = 0;
