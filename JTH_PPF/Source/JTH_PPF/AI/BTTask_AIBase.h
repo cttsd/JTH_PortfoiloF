@@ -8,6 +8,8 @@
 #include <AI/AICon.h>
 #include <Global/GlobalEnums.h>
 #include <BehaviorTree/BlackboardComponent.h>
+#include "NavigationSystem.h"
+#include "NavigationPath.h"
 #include "BTTask_AIBase.generated.h"
 
 /**
@@ -47,4 +49,12 @@ public:
 	void TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DelataSeconds) override;
 
 	bool IsDeathCheck(UBehaviorTreeComponent& OwnerComp);
+
+	TArray<FVector> PathFind(UBehaviorTreeComponent& OwnerComp, AActor* _Actor);
+
+	TArray<FVector> PathFind(UBehaviorTreeComponent& OwnerComp, FVector _Pos);
+
+	UNavigationPath* PathFindNavPath(UBehaviorTreeComponent& OwnerComp, AActor* _Actor);
+
+	UNavigationPath* PathFindNavPath(UBehaviorTreeComponent& OwnerComp, FVector _Pos);
 };
