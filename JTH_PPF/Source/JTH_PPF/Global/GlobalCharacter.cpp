@@ -19,6 +19,8 @@ void AGlobalCharacter::BeginPlay()
 {
 	
 	Super::BeginPlay();
+
+	PlayerHP = 140;
 	/*
 	UGlobalGameInstance* Inst = GetWorld()->GetGameInstance<UGlobalGameInstance>();
 	if (nullptr != Inst)
@@ -69,6 +71,7 @@ void AGlobalCharacter::OverLap(UPrimitiveComponent* OverlappedComponent,
 		
 		//여기 있는 Att은 나의 공격력이 아닌 내가 받는 데미지를 말하는 거임
 		HP -= Att;
+		PlayerHP = HP;
 		if (0 >= HP)
 		{
 			HP = 0;
@@ -99,6 +102,7 @@ void AGlobalCharacter::OverLap(UPrimitiveComponent* OverlappedComponent,
 	if (true == OtherComp->ComponentHasTag(TEXT("HeartPostion")))
 	{
 		HP += 40;
+		PlayerHP = HP;
 		//몬스터가 죽었을 때 드랍하는 하트모양 아이템을 먹으면 체력이 20 회복됨
 		if (HP >= MAXHP)
 		{

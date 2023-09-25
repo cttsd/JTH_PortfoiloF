@@ -2,7 +2,8 @@
 
 
 #include "JTHUI/MainWidget.h"
-//#include "AI/AIPlayerCharacter.h"
+#include <Global/GlobalCharacter.h>
+#include "Kismet/GameplayStatics.h"
 #include "InventoryUserWidget.h"
 
 
@@ -53,16 +54,17 @@ bool UMainWidget::CheckAllWidGetHidden()
 
 	return false;
 }
-/*
-void UMainWidget::PlayerHP()
-{
 
-	PlayHP = CurPlayerCharacter->CharacterHP;
-	PlayMAXHP = CurPlayerCharacter->CharacterMAXHP;
-	if (PlayHP)
-	{
-		
-	}
-	return;
+float UMainWidget::SetMyCharacterHP()
+{
+	AGlobalCharacter* MyCharacter = Cast<AGlobalCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	int _HP = MyCharacter->PlayerHP;
+	return _HP;
 }
-*/
+
+float UMainWidget::SetMyCharacterMAXHP()
+{
+	AGlobalCharacter* MyCharacter = Cast<AGlobalCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	int _MAXHP = MyCharacter->PlayerMAXHP;
+	return _MAXHP;
+}

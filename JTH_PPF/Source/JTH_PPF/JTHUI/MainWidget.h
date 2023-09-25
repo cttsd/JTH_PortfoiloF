@@ -18,6 +18,12 @@ class JTH_PPF_API UMainWidget : public UUserWidget
 
 public:
 	
+	UFUNCTION(BlueprintCallable)
+	float SetMyCharacterHP();
+
+	UFUNCTION(BlueprintCallable)
+	float SetMyCharacterMAXHP();
+
 	/*
 	class AAIPlayerCharacter* CurPlayerCharacter;
 

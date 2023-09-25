@@ -24,6 +24,12 @@ public:
 
 	int characterATT = 0;
 	*/
+	UPROPERTY(Category = "PlayerHp", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	float PlayerHP = 0;
+
+	UPROPERTY(Category = "PlayerMaxHp", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	float PlayerMAXHP = 0;
+
 
 	void SetHP(int _HP)
 	{
@@ -161,6 +167,7 @@ protected:
 		virtual void MainMAXHP(int _MAXHP)
 		{
 			MAXHP = _MAXHP;
+			PlayerMAXHP = MAXHP;
 		}
 
 	UPROPERTY(Category = "GlobalChracterValue", EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
